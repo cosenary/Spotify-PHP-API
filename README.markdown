@@ -48,6 +48,8 @@ Your feedback is always welcome.
         echo "<a href="/{$uri}"/>Play Song with Spotify</a>";
     ?>
 
+**All methods return the API data `json_decode()` - so you can directly access the data.**
+
 ## Available methods ##
 
 ### Search methods ###
@@ -64,11 +66,11 @@ All `<$page>` parameters are optional. If the page number is undefined, the firs
 
 - `lookUp($uri, <$detail>)`
   - `$uri` is a valid Spotify URI like: `spotify:artist:58lV9VcRSjABbAbfWS6skp`, `spotify:track:4I4BS0OeI7VZdo5WeEQHFP`
-    - the URI type will be automatically detected
+     - the URI type will be automatically detected
   - `$detail` defines the detail level in the response:
-    - Artist: `album`, `albumdetail`
-    - Album: `track`, `trackdetail`
-    - Track: `no detail level available`
+     - Artist: `album`, `albumdetail`
+     - Album: `track`, `trackdetail`
+     - Track: `no detail level available`
 - `getUri($obj, <$count>)`
   - `$obj` is a JSON object returned by one of the search methods
   - `$count` *[optional]* number of result (first result = 0 *[default]*)
@@ -82,6 +84,7 @@ If you need additional informations, take a look at [Spotify's API docs](http://
 **Instagram 1.0 - 27/11/2011**
 
 - `release` First official released version
+- `feature` Added `getUri()` method
 - `update` Detailed documentation
 
 **Instagram 0.5 - 26/11/2011**

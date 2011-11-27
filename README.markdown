@@ -58,7 +58,7 @@ Your feedback is always welcome.
 
 All `<$page>` parameters are optional. If the page number is undefined, the first one will be returned *(default)*.
 
-> [Sample responses of the Search Endpoints.]()
+> [Sample responses of the Search Endpoints.](https://github.com/cosenary/Spotify-PHP-API/wiki/Search-endpoints)
 
 ### Lookup method ###
 
@@ -73,13 +73,13 @@ All `<$page>` parameters are optional. If the page number is undefined, the firs
   - `$obj` is a JSON object returned by one of the search methods
   - `$count` *[optional]* number of result (first result = 0 *[default]*)
 
-> [Sample responses of the Lookup Endpoints.]()
+> [Sample responses of the Lookup Endpoints.](https://github.com/cosenary/Spotify-PHP-API/wiki/Lookup-endpoints)
 
 If you need additional informations, take a look at [Spotify's API docs](http://developer.spotify.com/en/metadata-api/overview/).
 
 ## History ##
 
-**Instagram 0.8 - 27/11/2011**
+**Instagram 1.0 - 27/11/2011**
 
 - `release` First official released version
 - `update` Detailed documentation

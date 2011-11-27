@@ -32,7 +32,7 @@ Your feedback is always welcome.
 
     <?php
         // Look up for an artist by its Spotify URI
-        $spotify->lookUp('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
+        $spotify->lookup('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
     ?>
 
 ### Generate Spotify URI ###
@@ -64,10 +64,10 @@ All `<$page>` parameters are optional. If the page number is undefined, the firs
 
 ### Lookup method ###
 
-- `lookUp($uri, <$detail>)`
+- `lookup($uri, <$detail>)`
   - `$uri` is a valid Spotify URI like: `spotify:artist:58lV9VcRSjABbAbfWS6skp`, `spotify:track:4I4BS0OeI7VZdo5WeEQHFP`
      - the URI type will be automatically detected
-  - `$detail` defines the detail level in the response:
+  - `$detail` defines the detail level in the response. Possible options are:
      - Artist: `album`, `albumdetail`
      - Album: `track`, `trackdetail`
      - Track: `no detail level available`

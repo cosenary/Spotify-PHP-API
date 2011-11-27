@@ -73,7 +73,7 @@ class Spotify {
    * @param string [optional] $detail     Detail level of the response
    * @return mixed
    */
-  public function lookUp($uri, $detail = null) {
+  public function lookup($uri, $detail = null) {
     $params = array('uri' => $uri);
     if (isset($detail) && in_array($detail, $this->_extras)) {
       $params['extras'] = $detail;

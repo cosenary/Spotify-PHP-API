@@ -3,7 +3,7 @@
 /**
  * Spotify Metadata API class
  * API Documentation: http://developer.spotify.com/en/metadata-api/overview/
- * Class Documentation: ...
+ * Class Documentation: https://github.com/cosenary/Spotify-PHP-API
  * 
  * @author Christian Metz
  * @since 26.11.2011
@@ -89,12 +89,29 @@ class Spotify {
    * @return string
    */
   public function getUri($obj, $count = 0) {
-    if (false === is_object($obj)) {
-      $type = $obj[info][type].'s';
-      return $obj[$type][$count][href];
+    if (true === is_object($obj)) {
+      $array = $this->_objectToArray($obj);
+      $type = $array['info']['type'].'s';
+      return $array[$type][$count]['href'];
     } else {
       throw new Exception("Error: getUri() - Requires JSON object returned by a search method.");
     }
+  }
+
+  /**
+   * Convert JSON object to an array
+   * 
+   * @param object $object                The object to convert
+   * @return array
+   */
+  private function _objectToArray($object) {
+    if (!is_object($object) && !is_array($object)) {
+      return $object;
+    }
+    if (is_object($object)) {
+      $object = get_object_vars($object);
+    }
+    return array_map(array($this, '_objectToArray'), $object);
   }
 
   /**
@@ -117,7 +134,7 @@ class Spotify {
     $jsonData = curl_exec($ch);
     curl_close($ch);
     
-    return json_decode($jsonData, true);
+    return json_decode($jsonData);
   }
 
 }

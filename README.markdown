@@ -2,7 +2,7 @@
 
 ## About ##
 
-A simple PHP wrapper for Spotify's Metadata API.  
+A simple static PHP wrapper for Spotify's Metadata API.  
 Your feedback is always welcome.
 
 ## Requirements ##
@@ -17,10 +17,8 @@ Your feedback is always welcome.
     <?php
         require_once 'spotify.class.php';
         
-        $spotify = new Spotify();
-        
         // Search for an artist by its name
-        $artist = $spotify->searchArtist('Maroon 5');
+        $artist = Spotify::searchArtist('Maroon 5');
         
         // Take a look at the response
         echo '<pre>';
@@ -32,17 +30,17 @@ Your feedback is always welcome.
 
     <?php
         // Look up for an artist by its Spotify URI
-        $spotify->lookup('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
+        Spotify::lookup('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
     ?>
 
 ### Generate Spotify URI ###
 
     <?php
         // Search for a track
-        $track = $spotify->searchTrack('Narcotic');
+        $track = Spotify::searchTrack('Narcotic');
         
         // Receive the Spotify URI for the first track
-        $uri = $spotify->getUri($track); // spotify:track:6MSPmHR15vgpa0A5L205Xv
+        $uri = Spotify::getUri($track); // spotify:track:6MSPmHR15vgpa0A5L205Xv
         
         // Display Spotify link (opens Spotify player)
         echo "<a href="/{$uri}"/>Play Song with Spotify</a>";
@@ -81,13 +79,19 @@ If you need additional informations, take a look at [Spotify's API docs](http://
 
 ## History ##
 
-**Instagram 1.0 - 27/11/2011**
+**Spotify 1.1 - 12/12/2011**
+
+- `feature` Changed class to static methods
+- `update` Adjusted documentation
+- `change` Removed default constructor
+
+**Spotify 1.0 - 27/11/2011**
 
 - `release` First official released version
 - `feature` Added `getUri()` method
 - `update` Detailed documentation
 
-**Instagram 0.5 - 26/11/2011**
+**Spotify 0.5 - 26/11/2011**
 
 - `release` Beta version
 - `update` Small documentation

@@ -8,7 +8,7 @@
  * @author Christian Metz
  * @since 26.11.2011
  * @copyright Christian Metz - MetzWeb Networks
- * @version 1.0
+ * @version 1.1
  * @license BSD http://www.opensource.org/licenses/bsd-license.php
  */
 
@@ -31,7 +31,7 @@ class Spotify {
    * 
    * @return void
    */
-  public function __construct() {}
+  public static function initialize() {}
 
   /**
    * Search a Artist by its name
@@ -40,8 +40,8 @@ class Spotify {
    * @param integer [optional] $page      Page number
    * @return mixed
    */
-  public function searchArtist($name, $page = 1) {
-    return $this->_makeCall('/search/1/artist', array('q' => $name, 'page' => $page));
+  public static function searchArtist($name, $page = 1) {
+    return self::_makeCall('/search/1/artist', array('q' => $name, 'page' => $page));
   }
 
   /**
@@ -51,8 +51,8 @@ class Spotify {
    * @param integer [optional] $page      Page number
    * @return mixed
    */
-  public function searchAlbum($title, $page = 1) {
-    return $this->_makeCall('/search/1/album', array('q' => $title, 'page' => $page));
+  public static function searchAlbum($title, $page = 1) {
+    return self::_makeCall('/search/1/album', array('q' => $title, 'page' => $page));
   }
 
   /**
@@ -62,8 +62,8 @@ class Spotify {
    * @param integer [optional] $page      Page number
    * @return mixed
    */
-  public function searchTrack($title, $page = 1) {
-    return $this->_makeCall('/search/1/track', array('q' => $title, 'page' => $page));
+  public static function searchTrack($title, $page = 1) {
+    return self::_makeCall('/search/1/track', array('q' => $title, 'page' => $page));
   }
 
   /**
@@ -73,12 +73,12 @@ class Spotify {
    * @param string [optional] $detail     Detail level of the response
    * @return mixed
    */
-  public function lookup($uri, $detail = null) {
+  public static function lookup($uri, $detail = null) {
     $params = array('uri' => $uri);
     if (isset($detail) && in_array($detail, $this->_extras)) {
       $params['extras'] = $detail;
     }
-    return $this->_makeCall('/lookup/1/', $params);
+    return self::_makeCall('/lookup/1/', $params);
   }
 
   /**
@@ -88,9 +88,9 @@ class Spotify {
    * @param integer [optional] $count     (Default first one)
    * @return string
    */
-  public function getUri($obj, $count = 0) {
+  public static function getUri($obj, $count = 0) {
     if (true === is_object($obj)) {
-      $array = $this->_objectToArray($obj);
+      $array = self::_objectToArray($obj);
       $type = $array['info']['type'].'s';
       return $array[$type][$count]['href'];
     } else {
@@ -104,14 +104,14 @@ class Spotify {
    * @param object $object                The object to convert
    * @return array
    */
-  private function _objectToArray($object) {
+  private static function _objectToArray($object) {
     if (!is_object($object) && !is_array($object)) {
       return $object;
     }
     if (is_object($object)) {
       $object = get_object_vars($object);
     }
-    return array_map(array($this, '_objectToArray'), $object);
+    return array_map(array(self, '_objectToArray'), $object);
   }
 
   /**
@@ -121,7 +121,7 @@ class Spotify {
    * @param array $params                 Request parameters
    * @return mixed
    */
-  private function _makeCall($function, $params) {
+  private static function _makeCall($function, $params) {
     $params = '.json?'.utf8_encode(http_build_query($params));
     $apiCall = self::API_URL.$function.$params;
     

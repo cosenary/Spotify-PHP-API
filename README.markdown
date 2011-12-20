@@ -14,6 +14,7 @@ Your feedback is always welcome.
 
 ### Setup class and search for an Artist ###
 
+```php
     <?php
         require_once 'spotify.class.php';
         
@@ -25,16 +26,20 @@ Your feedback is always welcome.
         print_r($artist);
         echo '<pre>';
     ?>
+```
 
 ### URI Lookup ###
 
+```php
     <?php
         // Look up for an artist by its Spotify URI
         Spotify::lookup('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
     ?>
+```
 
 ### Generate Spotify URI ###
 
+```php
     <?php
         // Search for a track
         $track = Spotify::searchTrack('Narcotic');
@@ -45,6 +50,7 @@ Your feedback is always welcome.
         // Display Spotify link (opens Spotify player)
         echo "<a href="/{$uri}"/>Play Song with Spotify</a>";
     ?>
+```
 
 **All methods return the API data `json_decode()` - so you can directly access the data.**
 

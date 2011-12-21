@@ -16,15 +16,15 @@ Your feedback is always welcome.
 
 ```php
 <?php
-  require_once 'spotify.class.php';
+    require_once 'spotify.class.php';
         
-  // Search for an artist by its name
-  $artist = Spotify::searchArtist('Maroon 5');
+    // Search for an artist by its name
+    $artist = Spotify::searchArtist('Maroon 5');
         
-  // Take a look at the response
-  echo '<pre>';
-  print_r($artist);
-  echo '<pre>';
+    // Take a look at the response
+    echo '<pre>';
+    print_r($artist);
+    echo '<pre>';
 ?>
 ```
 
@@ -32,8 +32,8 @@ Your feedback is always welcome.
 
 ```php
 <?php
-  // Look up for an artist by its Spotify URI
-  Spotify::lookup('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
+    // Look up for an artist by its Spotify URI
+    Spotify::lookup('spotify:artist:58lV9VcRSjABbAbfWS6skp', 'album');
 ?>
 ```
 
@@ -41,14 +41,14 @@ Your feedback is always welcome.
 
 ```php
 <?php
-  // Search for a track
-  $track = Spotify::searchTrack('Narcotic');
+    // Search for a track
+    $track = Spotify::searchTrack('Narcotic');
         
-  // Receive the Spotify URI for the first track
-  $uri = Spotify::getUri($track); // spotify:track:6MSPmHR15vgpa0A5L205Xv
+    // Receive the Spotify URI for the first track
+    $uri = Spotify::getUri($track); // spotify:track:6MSPmHR15vgpa0A5L205Xv
         
-  // Display Spotify link (opens Spotify player)
-  echo "<a href="/{$uri}"/>Play Song with Spotify</a>";
+    // Display Spotify link (opens Spotify player)
+    echo "<a href="/{$uri}"/>Play Song with Spotify</a>";
 ?>
 ```
 

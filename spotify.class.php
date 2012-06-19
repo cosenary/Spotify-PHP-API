@@ -16,6 +16,8 @@ class Spotify {
 
   /**
    * The API base URL
+   * 
+   * @var string
    */
   const API_URL = 'http://ws.spotify.com';
 
@@ -25,13 +27,6 @@ class Spotify {
    * @var array
    */
   private $_extras = array('album', 'albumdetail', 'track', 'trackdetail');
-
-  /**
-   * Default constructor
-   * 
-   * @return void
-   */
-  public static function initialize() {}
 
   /**
    * Search a Artist by its name
@@ -91,7 +86,7 @@ class Spotify {
   public static function getUri($obj, $count = 0) {
     if (true === is_object($obj)) {
       $array = self::_objectToArray($obj);
-      $type = $array['info']['type'].'s';
+      $type = $array['info']['type'] . 's';
       return $array[$type][$count]['href'];
     } else {
       throw new Exception("Error: getUri() - Requires JSON object returned by a search method.");
@@ -138,5 +133,3 @@ class Spotify {
   }
 
 }
-
-?>

@@ -70,7 +70,7 @@ class Spotify {
    */
   public static function lookup($uri, $detail = null) {
     $params = array('uri' => $uri);
-    if (isset($detail) && in_array($detail, $this->_extras)) {
+    if (isset($detail) && in_array($detail, self::$_extras)) {
       $params['extras'] = $detail;
     }
     return self::_makeCall('/lookup/1/', $params);

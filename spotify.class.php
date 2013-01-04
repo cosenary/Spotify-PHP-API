@@ -2,13 +2,13 @@
 
 /**
  * Spotify Metadata API class
- * API Documentation: http://developer.spotify.com/en/metadata-api/overview/
+ * API Documentation: https://developer.spotify.com/technologies/web-api/
  * Class Documentation: https://github.com/cosenary/Spotify-PHP-API
  * 
  * @author Christian Metz
  * @since 26.11.2011
  * @copyright Christian Metz - MetzWeb Networks
- * @version 1.1
+ * @version 1.2
  * @license BSD http://www.opensource.org/licenses/bsd-license.php
  */
 
@@ -26,7 +26,7 @@ class Spotify {
    * 
    * @var array
    */
-  private $_extras = array('album', 'albumdetail', 'track', 'trackdetail');
+  private static $_extras = array('album', 'albumdetail', 'track', 'trackdetail');
 
   /**
    * Search a Artist by its name
@@ -117,7 +117,7 @@ class Spotify {
    * @return mixed
    */
   private static function _makeCall($function, $params) {
-    $params = '.json?'.utf8_encode(http_build_query($params));
+    $params = '.json?' . utf8_encode(http_build_query($params));
     $apiCall = self::API_URL.$function.$params;
     
     $ch = curl_init();

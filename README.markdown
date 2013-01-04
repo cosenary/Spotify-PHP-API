@@ -81,9 +81,14 @@ All `<$page>` parameters are optional. If the page number is undefined, the firs
 
 > [Sample responses of the Lookup Endpoints.](https://github.com/cosenary/Spotify-PHP-API/wiki/Lookup-endpoints)
 
-If you need additional informations, take a look at [Spotify's API docs](http://developer.spotify.com/en/metadata-api/overview/).
+If you need additional informations, take a look at [Spotify's API docs](https://developer.spotify.com/technologies/web-api/).
 
 ## History ##
+
+**Spotify 1.2 - 04/01/2013**
+
+- `bug` Fixed undeclared static property error
+- `update` Updated Spotify API doc URLs
 
 **Spotify 1.1 - 12/12/2011**
 

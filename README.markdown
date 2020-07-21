@@ -24,7 +24,7 @@ Your feedback is always welcome.
     // Take a look at the response
     echo '<pre>';
     print_r($artist);
-    echo '<pre>';
+    echo '</pre>';
 ?>
 ```
 
